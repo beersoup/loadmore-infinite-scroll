@@ -2,7 +2,7 @@
 ```
   > git clone https://github.com/beersoup/loadmore-infinite-scroll.git
   > cd loadmore-infinite-scroll
-	> npm install
+  > npm install
   > npm run dev
 	
 
