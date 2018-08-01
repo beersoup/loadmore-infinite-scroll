@@ -1,10 +1,11 @@
 import React from 'react';
+import Users from './users';
 import '../../assets/style/app.scss';
 
 const App = () => (
-  <p>
-    Hello React!!2345
-  </p>
+  <div className="app">
+    <Users />
+  </div>
 );
 
 export default App;

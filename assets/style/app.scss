@@ -1,7 +1,67 @@
-body {
-    background-image: url('../pic.jpg');
-    p {
-        font-size: 50px;
-        color: green;
+@import "_colors.scss";
+@import "_loader.scss";
+
+
+body, html {
+  background: $color-bg;
+  margin: 0;
+  padding: 0;
+}
+.app {
+  width: 400px;
+  height: 100vh;
+  background: #fff;
+  margin: 0 auto;
+}
+.users {
+  ul {
+    li .content {
+      min-height: 100px;
+      padding: 20px;
+      position: relative;
+      border-bottom-style: solid;
+      border-bottom-width: thin;
+      border-bottom-color: $color-bg;
+      animation: contentMoveUp 1s ease-in;
+      img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        position: absolute;
+        top: unset;
+      }
+      span {
+        position: absolute;
+        top: 45%;
+        left: 150px;
+        display: block;
+      }
     }
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  padding: 50px 20px;
+  background: #fff;
+}
+.title {
+  text-align: center;
+  padding: 30px;
+  background: $color-light-green;
+  animation: contentMoveUp 1s ease-in;
+}
+.no-more {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 13px;
+  animation: contentMoveUp 1s ease-in;
+}
+@keyframes contentMoveUp {
+  0% {
+    transform: translate3d(0px, 80px, 0px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0px);
+    opacity: 1;
+  }
 }
