@@ -1,7 +1,6 @@
 # loadmore-infinite-scroll
 ```
 
-  > Clone project
 	> npm install
 	
 
