@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { PropTypes } from 'prop-types';
-import { fetchUsers } from '../actions';
+import { fetchListUsers } from '../actions';
 import Loader from './loader';
 import UsersList from './usersList';
 
@@ -18,17 +18,17 @@ class Users extends Component {
   }
 
   componentDidMount() {
-    const { users } = this.props;
+    const { listUsers } = this.props;
     const { page } = this.state;
     setTimeout(() => {
-      users(page);
+      listUsers(page);
       window.addEventListener('scroll', this.handleScroll);
       this.setState({ getUsersList: true });
     }, 3000);
   }
 
   handleScroll() {
-    const { users } = this.props;
+    const { listUsers } = this.props;
     const { page } = this.state;
     const element = document.getElementById('users-wrap');
     const wrapHeight = element.offsetHeight;
@@ -36,7 +36,7 @@ class Users extends Component {
     const timeToLoadMore = Math.ceil(scrollPosition) >= wrapHeight;
     if (timeToLoadMore) {
       const nextPage = page + 1;
-      this.setState({ page: nextPage }, users(nextPage));
+      this.setState({ page: nextPage }, listUsers(nextPage));
     }
   }
 
@@ -54,8 +54,8 @@ class Users extends Component {
   }
 
   renderUsersList(readOnly) {
-    if (readOnly.usersList.length > 0) {
-      return readOnly.usersList.map((user) => {
+    if (readOnly.users.length > 0) {
+      return readOnly.users.map((user) => {
         return (
           <li key={user.id}>
             <UsersList
@@ -95,12 +95,12 @@ const mapStateToProps = function (state) {
 
 const mapDispatchToProps = function (dispatch) {
   return bindActionCreators({
-    users: fetchUsers,
+    listUsers: fetchListUsers,
   }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Users);
 
 Users.propTypes = {
-  users: PropTypes.func.isRequired,
+  listUsers: PropTypes.func.isRequired,
 };

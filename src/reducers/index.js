@@ -3,7 +3,7 @@ import fetchUsersReducer from './fetchUsersReducer';
 import fetchDataReducer from './fetchDataReducer';
 
 const rootReducer = combineReducers({
-  usersList: fetchUsersReducer,
+  users: fetchUsersReducer,
   data: fetchDataReducer,
 });
 
